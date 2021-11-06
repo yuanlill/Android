@@ -136,7 +136,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 [![Iuiw7j.png](https://z3.ax1x.com/2021/11/05/Iuiw7j.png)](https://imgtu.com/i/Iuiw7j)
 
 ### 二、创建自定义布局的AlertDialog
-
+1.创建构造器AlertDialog.Builder的对象；
+2.通过构造器对象调用setTitle、setMessage、setIcon等方法构造对话框的标题、信息和图标等内容；
+3.根据需要调用setPositive/Negative/NeutralButton()方法设置正面按钮、负面按钮和中立按钮；
+4.调用构造器对象的create方法创建AlertDialog对象；
+5.AlertDialog对象调用show方法，让对话框在界面上显示。
 对于类似登录界面，个人习惯使用约束布局，方便调整：
 
 ```
@@ -331,6 +335,10 @@ public class MainActivity extends AppCompatActivity {
 
 所谓“上下文”是指操作与某个列表项相关的，而非整个屏幕相关联的。
 上下文操作主要是通过上下文操作栏呈现的，它位于activity的Toolbar之上，上下文操作栏为用户提供了各种操作
+onCreateActionMode(ActionMode, Menu)       在初始创建的时候调用
+onPrepareActionMode(ActionMode, Menu)      在创建之后准备绘制的时候调用
+onActionItemClicked(ActionMode, Menu)       当点击 ActionMode 菜单选项的时候调用
+onDestroyActionMode(ActionMode)               当退出 ActionMode 的时候调用
 先使用ListView创建List，再为ListItem创建ActionMode形式的上下文菜单，设置响应即刻实现
 上方选项菜单的有关设置：
 
